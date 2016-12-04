@@ -18,14 +18,14 @@ public class Node {
     // maxHeap: the lower the price, the lower the priority and vice versa
     //
     // You may create your own function if you do not understand my code
-    public boolean compare(Node rightNode){
-        if (this.price == rightNode.price) {
-            return false; // FIX THIS
+    public boolean compare(Node rightNode){     // Priority means very important, have right to go first.
+        if (this.price == rightNode.price) {    // this(.price) = public Node that we create
+            return false;   // return false cuz both price are same.
         }else{
-            if (isMinHeap){
-                return false; // FIX THIS
+            if (isMinHeap){ //isMinHeap -> check if rightNode is a MinHeap(?)
+                return false;
             }else{
-                return false; // FIX THIS
+                return true;
             }
         }
     }
