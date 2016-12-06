@@ -36,7 +36,7 @@ public class Heap {
         }
         back++;
         timeCounter++;
-        timestamp=timeCounter;
+        node.timestamp=timeCounter;
     }
     public Node pop(){
         Node temp=arr[1];
