@@ -24,22 +24,37 @@ public class Heap {
         timeCounter = 0;
     }
     public Node top(){
-        return null; // FIX THIS
+        return arr[1];
     }
-    
+
     public void push(Node node){
-        // time stamp
-        node.timestamp = 0; // FIX THIS
-        
-        // Do something
-        // Push new node at the end then sift (percolate) up
+        int posn=timeCounter+1;
+        arr[timeCounter+1]=node;
+        while(posn>0 && arr[posn].price>arr[posn/2].price) {
+            swap(posn, posn/2);
+            posn = posn/2;
+        }
+        back++;
+        timeCounter++;
+        timestamp=timeCounter;
     }
     public Node pop(){
-        // DO SOMETHING
+        Node temp=arr[1];
+        arr[1]=arr[timeCounter];
+        int posn=1;
+        while (posn<timeCounter-1){
+            if(arr[posn].price>arr[posn*2].price){
+                swap(posn,posn*2);
+                posn=posn*2;
+            }else if(arr[posn].price>arr[(posn*2)+1].price){
+                swap(posn,(posn*2)+1);
+                posn=(posn*2)+1;
+            }
+        }
         // 1. mark the root for return
         // 2. Replace the last node with the root
         // 3. Sift (percolate) down
-        return arr[1]; // You may have to fix this line
+        return temp; // You may have to fix this line
     }
 
     // Optional: If you do not know what this function does, you do not have to use it
